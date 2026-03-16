@@ -333,6 +333,17 @@ ART is more about **UNDERSTANDING than DOING** — knowing it exists helps you t
 
 ⚠️ **ART vs CoT:** CoT = YOU design the steps. ART = AI designs its own steps automatically!
 
+**When AI doesn't act automatically — simulate the loop manually:**
+Sometimes the AI needs YOU to drive the Thought → Act → Observe loop via Prompt Chaining:
+- Prompt 1: *"What do you need to know to answer this?"*
+- Prompt 2: *"Here is the data / search for X"*
+- Prompt 3: *"Based on these results, what's your conclusion?"*
+- 🔄 Repeat until answered!
+
+This is **Prompt Chaining + ART combined** — you manually drive the reasoning loop when AI needs guidance! 🔗
+
+💡 **ReAct note:** ReAct is the academic name for this Thought → Act → Observe loop. In modern LLMs it happens automatically when tools are enabled — or manually via Prompt Chaining when it needs your guidance!
+
 ---
 
 ## 18. ⚙️ Automatic Prompt Engineer (APE)
@@ -370,25 +381,25 @@ With Few-Shot examples baked in 📸
 ⚠️ **Always specify:** A real number instead of X, clear evaluation criteria, and whether the prompt must be reusable!
 
 ---
- 
+
 ## 19. 🎯 Active-Prompt
- 
+
 Instead of choosing examples upfront and never changing them, Active-Prompt **learns from real failures** and improves over time. Like a GPS that updates itself based on wrong turns — getting smarter with every mistake! 🗺️
- 
+
 **The core idea:**
 > AI gets uncertain or wrong → YOU add that specific example → prompt gets smarter → repeat! 🔄
- 
+
 **The Active-Prompt cycle:**
 1. 🚀 Use your prompt
 2. 👀 Notice where AI gets uncertain or wrong
 3. ✍️ Add those specific cases as new examples
 4. 💪 Prompt gets smarter over time!
- 
+
 **Example — evolving a C# code review prompt:**
- 
+
 *Starting prompt:*
 > *"Classify this code review comment as: Security / Performance / Readability / Design"*
- 
+
 *After 2 weeks — updated with real failures:*
 > *"Classify this code review comment as: Security / Performance / Readability / Design*
 > - *"This method is too long"* → Design
@@ -396,116 +407,120 @@ Instead of choosing examples upfront and never changing them, Active-Prompt **le
 > - *"Hardcoded connection string"* → Security
 >
 > *Now classify: [paste comment here]"* 🎯
- 
+
 💡 **Key insight:**
 Every time AI gets something wrong in your C# work → add that specific case as a new example → your prompt library grows smarter with every project! 🌱
- 
+
 **Active-Prompt vs Few-Shot:**
 - 🖼️ Few-Shot = you add examples **upfront** from guessing
 - 🎯 Active-Prompt = you add examples **based on real failures**
- 
+
 ⭐ **Power combo:**
 APE to write the best initial prompt ⚙️
 \+ Generate Knowledge to build context 💡
 \+ Active-Prompt to improve from real failures 🎯
 = A prompt that starts strong AND gets better forever! 🌱
- 
+
 ⚠️ **When classifying:** Always write examples as *"X"* → ✅ Category *(not other category)* for maximum clarity!
+
+💡 **Reflexion tip:** Want the AI to self-improve without you spotting mistakes? Add this to ANY prompt:
+> *"Now critique your own answer and rewrite it fixing all issues you found."*
+> The AI becomes its own reviewer — no human needed! 🔄
 
 ---
 
 ## 20. 💻 Program-Aided Language Models (PAL)
- 
+
 Instead of asking AI to calculate directly — ask AI to **write code that calculates it**, then execute that code for a precise answer! Like a brilliant professor who understands everything but hands calculations to a calculator instead of doing them mentally! 🧮
- 
+
 **The 3-step PAL flow:**
 1. 🧠 You describe the problem
 2. ✍️ AI writes Python or JavaScript code to solve it
 3. ▶️ Code executes → exact answer returned!
- 
+
 **The golden PAL formula:**
 - *"Write Python code that calculates: [outputs you want]"*
 - *"Use these inputs: [your specific values]"*
 - *"Run the code, then explain the result in simple terms."*
- 
+
 **Example:**
 *"Write Python code that calculates bug fix velocity:*
 - *Fix rate percentage*
 - *Days to fix remaining bugs at 5 per day*
- 
+
 *Use these inputs: bugs fixed: 47, bugs reported: 63, daily fix rate: 5.*
 *Run the code, then explain the result."* 💻
- 
+
 **When to use PAL:**
 - 🔢 Any precise calculation
 - 📅 Date and time operations
 - 🔄 Data transformations
 - 📊 Statistical operations
 - 🔍 String parsing
- 
+
 **When NOT to use PAL:**
 - 💬 Creative writing
 - 🧠 Reasoning tasks
 - 📋 Explanations
- 
+
 💡 **Key insight:**
 Don't ask AI to calculate → ask AI to **build the calculator!** You're not just getting an answer — you're getting a reusable tool that answers forever! 🔧
- 
+
 **Supported languages in chat:**
 - 🐍 Python → runs directly in chat via code execution
 - 🌐 JavaScript → runs directly in artifacts
- 
+
 ⚠️ **Golden rule:** Computers calculate things better than LLMs — always use PAL for precision-critical tasks!
- 
+
 ---
 
 ## 21. 🖼️ Multimodal Chain of Thought (Multimodal CoT)
- 
+
 Instead of reasoning with text only, the AI reasons using **multiple types of input** — text, images, diagrams, charts — all together! Like a doctor who doesn't just read the patient's description but also studies the X-ray, scans, and charts! 🏥
- 
+
 **What "multimodal" means:**
 - 📝 Text → code, descriptions, instructions
 - 🖼️ Images → screenshots, diagrams, photos
 - 📊 Charts → graphs, data visualisations
 - 📄 Documents → PDFs, architecture diagrams
- 
+
 **The golden rule:**
 > Text = your **interpretation** of the problem
 > Image = the **raw reality** of the problem 🎯
- 
+
 **The magic formula:**
 - *"Here is [image/graph/diagram]..."*
 - *"And here is [text/logs/description]..."*
 - *"Think step by step about [problem] using all of these."*
- 
+
 **Example:**
 *"Here are: a graph showing API response times over 3 days, a screenshot of error logs, and our microservices architecture diagram. Think step by step about why our system degraded after Tuesday's deployment. Give me 3 possible causes with pros and cons, then recommend the best fix."* 🖼️
- 
+
 **Best use cases:**
 - 📊 Performance issues → response time graphs
 - 🐛 Mysterious bugs → error log screenshots
 - 🏗️ Architecture problems → system diagrams
 - 🖥️ UI bugs → interface screenshots
- 
+
 💡 **Key insight:**
 Every time you paste a screenshot into Claude and ask it to reason about it — that's Multimodal CoT in action! You're already using it! 😄
- 
+
 ⚡ **Power combo:** Session Priming + Multimodal CoT + Tree of Thought = the ultimate debugging prompt! 🔥
- 
+
 ---
- 
+
 ## 22. 🕸️ Graph Prompting
- 
+
 Instead of describing relationships in plain text, represent knowledge as a **network of connected nodes** that the AI can reason across! Like drawing a road map instead of describing the route in words! 🗺️
- 
+
 **What a graph consists of:**
 - 🔵 Node = a thing *(class, service, concept)*
 - ➡️ Edge = a relationship *(calls, depends on, inherits from)*
- 
+
 **The golden arrow rule:**
 > ➡️ Always points FROM the dependent TO what it depends on
 > *"A → B"* means *"A depends on / inherits from B"* 🎯
- 
+
 **The magic formula:**
 ```
 NodeA → NodeB → NodeC
@@ -513,7 +528,7 @@ NodeA → NodeD
 NodeE → NodeB
 ```
 *"Based on this graph, [your question about relationships, impact, or order]"*
- 
+
 **Example:**
 ```
 Animal → FoodService
@@ -523,21 +538,21 @@ GuideDog → Dog
 GuideDog → TrainingService
 ```
 *"Based on this class dependency graph, if we change the Animal class, which classes need updating and in what order?"* 🕸️
- 
+
 **What graphs reveal that text hides:**
 - 🔗 Direction — who calls who, not just who exists
 - 📍 Distance — how many hops between nodes
 - 💥 Cascade — which failures trigger other failures
- 
+
 **Best use cases:**
 - 🏗️ Microservices dependency maps
 - 🔄 Class inheritance diagrams
 - 📦 Package dependencies
 - 🗄️ Database relationship schemas
 - 🏢 Organisation charts
- 
+
 💡 **Graph Prompting vs Multimodal CoT:**
 - 🕸️ Graph Prompting → you BUILD relationships as text arrows
 - 🖼️ Multimodal CoT → you PROVIDE an actual diagram image
- 
+
 ⚡ **Power combo:** Graph Prompting + Multimodal CoT + Tree of Thought = the ultimate architecture analysis prompt! 🔥
