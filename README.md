@@ -153,6 +153,12 @@ Breaking a big task into smaller connected prompts — where each prompt builds 
 
 **Connector words:** *"Based on that / Using that result / Now take that and / Building on that"*
 
+💡 **Least-to-Most Prompting tip:** A variation of Prompt Chaining combined with Generate Knowledge — deliberately escalate complexity from simple to complex:
+- Step 1: *"Explain what a C# interface is."*
+- Step 2: *"Now explain why interfaces are useful for dependency injection."*
+- Step 3: *"Now implement a full dependency injection pattern using interfaces."*
+Use when AI needs the foundation before tackling the complex version! 🎓
+
 **Example:**
 - *"List the steps to build a C# REST API for a blog."*
 - *"Using that plan, write the C# code."*
@@ -269,27 +275,27 @@ Instead of giving specific examples like Few-Shot, you give the AI an abstract t
 ---
 
 ## 15. 💡 Generate Knowledge Prompting
- 
+
 Ask the AI to generate relevant knowledge FIRST, then use that knowledge to answer the actual question. Like writing study notes before an exam — the AI becomes its own teacher before answering! 🎓
- 
+
 **The magic formula:**
 - *"First, generate everything important to know about X..."*
 - *"Then, using that knowledge, recommend/explain/decide..."*
- 
+
 **Example:**
 *"First, generate everything important to know about REST and GraphQL — key concepts, pros, cons, and use cases. Then, using that knowledge, recommend which is better for a small C# e-shop API."* 💡
- 
+
 **Key signal words:**
 - *"First generate everything about..."* 🧠
 - *"Using that knowledge..."* 🎯
- 
+
 **Power combos:**
 - Simple decision → Generate Knowledge alone
 - Complex comparison → Generate Knowledge + Prompt Chaining 🔗
 - High stakes decision → Generate Knowledge + Tree of Thought 🌳
- 
+
 ⚠️ **Difference from CoT:** CoT reasons through a problem — Generate Knowledge builds a knowledge base BEFORE tackling it!
- 
+
 💡 **Step-Back Prompting tip:** A variation of Generate Knowledge — instead of *"generate everything about X"* use *"step back and think about the broader principles of X first, then apply them to my specific problem."* Useful when you need higher level abstraction rather than detailed knowledge!
 
 ---
@@ -588,15 +594,15 @@ GuideDog → TrainingService
 ⚡ **Power combo:** Graph Prompting + Multimodal CoT + Tree of Thought = the ultimate architecture analysis prompt! 🔥
 
 ---
- 
+
 ## 23. 📐 Structured Output Prompting
- 
+
 Instead of getting free-form text, you force the AI to respond in a **specific, predictable format** — JSON, XML, CSV, YAML, or any custom structure. Like handing a waiter a form to fill in instead of letting them talk freely! 🍽️
- 
+
 **The golden rule:**
 > If a **human** reads the output → free text or Meta Prompting is fine 📖
 > If **code** reads the output → always use Structured Output! 💻
- 
+
 **Available formats:**
 - 🔧 JSON → APIs, apps, data processing
 - 📄 XML → Enterprise systems, .NET configs
@@ -605,7 +611,7 @@ Instead of getting free-form text, you force the AI to respond in a **specific, 
 - 🔢 SQL → Database queries and migrations
 - 📋 Markdown → Documents, reports, cheat sheets
 - 🌐 HTML → Web pages, email templates
- 
+
 **The magic formula:**
 *"Respond ONLY in this JSON structure — no extra text:"*
 ```json
@@ -617,7 +623,7 @@ Instead of getting free-form text, you force the AI to respond in a **specific, 
   }
 ]
 ```
- 
+
 **Example — C# sprint planning tool:**
 ```json
 [
@@ -631,37 +637,37 @@ Instead of getting free-form text, you force the AI to respond in a **specific, 
 ]
 ```
 *"Analyse these user stories. Return JSON only — no extra text."* 📐
- 
+
 **C# deserialisation rules:**
 - Always use **camelCase** field names 🐫
 - Numbers must be `0` not `""` — so C# knows the type!
 - Wrap in `[]` array for multiple items
 - Typos in field names = deserialisation failures! ⚠️
- 
+
 💡 **Structured Output vs Meta Prompting:**
 - 🧬 Meta Prompting → human readable, AI may add extra text
 - 📐 Structured Output → machine readable, strict JSON only
- 
+
 ⚠️ **Always add:** *"No extra text — JSON only"* — otherwise AI adds explanations that break your parser! 💥
 
 ---
- 
+
 ## 24. 💬 Emotion/Stakes Prompting
- 
+
 Adding **emotional context or real stakes** to your prompt to get a more thorough, careful response from the AI. Like telling a colleague *"this goes to production tomorrow for 50,000 users"* instead of *"review this when you have time"* — same request, completely different level of attention! 🎯
- 
+
 **Why it works:**
 AI is trained on human text — humans naturally respond differently when stakes are high. The AI has learned this pattern and mirrors it! 🧠
- 
+
 **The 4 stakes ingredients:**
- 
+
 | Ingredient | Example |
 |---|---|
 | ⏰ Deadline | *"goes live tomorrow"*, *"CTO review in 2 hours"* |
 | 👥 Scale | *"100,000 users"*, *"5 years of customer data"* |
 | 💥 Consequence | *"could cause outage"*, *"regulatory issues"* |
 | 🏦 Context | *"banking system"*, *"production database"* |
- 
+
 **Your stakes toolkit:**
 - *"This goes to production for X users"* 👥
 - *"Client demo in X hours"* ⏰
@@ -669,94 +675,94 @@ AI is trained on human text — humans naturally respond differently when stakes
 - *"Performance issue affecting revenue"* 💰
 - *"My team is blocked on this"* 🚧
 - *"Please be extremely thorough — we cannot afford mistakes"* 💬
- 
+
 **Example:**
 *"This login implementation goes live tomorrow for 50,000 banking users. A security breach would be catastrophic for our company. Please review it extremely carefully for any vulnerabilities."* 💬
- 
+
 💡 **Power tip:** Add the emotional kicker at the END of your prompt for maximum effect:
 > *"We cannot afford any mistakes tonight."* 🔒
- 
+
 ⚠️ **Don't fake stakes** — use this when there ARE real stakes. Overusing it makes it less effective!
- 
+
 ⚡ **Ultimate combo:** Session Priming + Multimodal CoT + Tree of Thought + Structured Output + Emotion/Stakes = the most thorough analysis possible! 🏆
- 
+
 ---
- 
+
 ## 25. 🪟 Context Window Management
- 
+
 The AI can only "see" a limited amount of text at once — like a colleague with short-term memory who forgets what was said at the start of a 3-hour meeting! 🧠
- 
+
 **What is the context window?**
 Think of it as the AI's **working desk** 🗂️:
 - Everything on the desk = what AI can currently see
 - Desk has limited space = context window limit
 - Old papers fall off the edge = AI forgets earlier content!
- 
+
 **Where the problem comes from:**
 - Long coding sessions → AI forgets your Session Priming 😬
 - Large codebases → AI can't see everything at once
 - Multi-day projects → context resets every new session
 - Early 2022-2023 models had only 4,000-8,000 tokens — roughly 3,000-6,000 words!
- 
+
 **Old manual solutions (2022-2023):**
 - ✂️ Manually compressing prompts to save tokens
 - 📋 Obsessively summarising every few messages
 - 🔄 Carefully re-pasting context in every message
 - 📏 Counting tokens before sending anything
- 
+
 **How modern AI handles it in 2026:**
 - 🪟 Massive context windows — Claude has ~200,000 tokens (~150,000 words) ✅
 - 🗜️ Auto-compression of older messages internally ✅
 - 🧲 Automatic prioritisation of recent messages ✅
 - 🔍 RAG via Claude Projects — persistent context across ALL sessions ✅
- 
+
 **What still makes sense today:**
 - 🔄 Re-prime with Session Priming if AI drifts in very long sessions
 - 📋 Ask for a summary after 50+ messages: *"Summarise what we've built and decided so far."*
 - 📁 Use Claude Projects for serious multi-day work — RAG handles the rest!
- 
+
 💡 **The 2026 golden rule:**
 > Short sessions → don't worry at all! ✅
 > Long sessions → re-prime if AI drifts 🔄
 > Multi-day projects → Claude Projects = persistent context forever! 🔍
- 
+
 ⚠️ **Context Window Management is largely automated in 2026 — but understanding WHY it exists makes you a better prompt engineer!**
 
 ---
- 
+
 ## 26. 🔀 Contrastive Prompting
- 
+
 Instead of only showing good examples like Few-Shot, you show the AI **both a bad AND a good example side by side** — so it learns by seeing the difference! Like teaching a junior developer by showing wrong code next to right code! 👨‍💻
- 
+
 **How it's different from Few-Shot:**
 - 🖼️ Few-Shot → shows only good examples
 - 🔀 Contrastive → shows BAD and GOOD together — AI learns the DIFFERENCE!
- 
+
 **The magic formula:**
 > ❌ *"Don't write like this: [bad example]"*
 > ✅ *"Do write like this: [good example]"*
- 
+
 **Example — C# code comments:**
 > ❌ *Don't write comments like this:*
 > `// Loop through items`
 >
 > ✅ *Do write comments like this:*
 > `// Filters active users older than 18 for GDPR compliance`
- 
+
 **Example — Bug reports:**
 > ❌ *Don't report like this:*
 > *"App doesn't work sometimes."*
 >
 > ✅ *Do report like this:*
 > *"Login fails with 401 error when username contains special characters. Reproducible 100% on Chrome 121, Windows 11."*
- 
+
 💡 **Best used for:**
 - ✍️ Writing style and tone
 - 📋 Document and report formatting
 - 🐛 Bug report standards
 - 📧 Email communication style
 - 🎯 Any output where "almost right" keeps happening!
- 
+
 ⭐ **Power combo:** Few-Shot + Contrastive = show good examples THEN show bad vs good contrast = the AI understands your standard perfectly! 🔥
- 
+
 ⚠️ **When AI keeps getting it almost right** — that's your signal to add a contrastive example showing exactly what's wrong vs what's right!
