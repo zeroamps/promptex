@@ -32,6 +32,9 @@ A beginner-friendly cheat sheet for prompt engineering techniques.
 - 📜 [System Prompts](#27--system-prompts) — Building AI apps or setting permanent rules
 - 🔒 [Prompt Security](#28--prompt-security) — Building secure AI-powered apps
 - 🤖 [AI Agents](#29--ai-agents) — Autonomous goal-oriented AI
+- 🔌 [MCP](#30--mcp--model-context-protocol) — Connecting AI to external tools and services
+- 🎓 [Skills](#31--skills) — Pre-built instruction packages for consistent results
+- 🛠️ [Tools](#32--tools) — Built-in AI capabilities that make things happen
 
 ---
 
@@ -961,3 +964,222 @@ Technically yes — people have run Claude Code non-stop for days! But practical
 - *"Fix all failing unit tests in /tests"* → reads, runs, fixes, verifies 🧪
 - *"Review this PR and suggest improvements"* → reads code, analyses, reports 📋
 - *"Find all security vulnerabilities in our API"* → scans, analyses, reports 🔒
+
+---
+
+## 30. 🔌 MCP — Model Context Protocol
+
+A universal standard that lets AI connect to **any external tool or service** — like a USB-C adapter 🔌 that works with everything instead of needing a different cable for every device!
+
+**The problem it solves:**
+> Before MCP — every tool needed its own custom connection 😬
+> Like having a different charger for every device!
+> After MCP — one standard works with Gmail, GitHub, Jira, Slack, databases — all of them! ✅
+
+**How it works — simple version:**
+> You ask Claude: *"Find our latest sales report and email it to my manager"*
+>
+> Behind the scenes Claude:
+> 1. 🔌 Connects to your tools via MCP
+> 2. 🗄️ Asks the database tool: *"Give me the latest report"*
+> 3. 📧 Asks the email tool: *"Send this to the manager"*
+> 4. ✅ Reports back: *"Done — email sent!"*
+>
+> You see none of this — it just works! 🎯
+
+**The messages underneath are JSON — like this:**
+```json
+{
+  "method": "tools/call",
+  "params": {
+    "name": "send_email",
+    "arguments": {
+      "to": "manager@company.com",
+      "subject": "Sales Report"
+    }
+  }
+}
+```
+Think of it as Claude filling in a form for each tool it uses! 📋
+
+**Popular tools you can connect via MCP:**
+- 📧 Gmail — read and send emails
+- 📅 Google Calendar — check and create meetings
+- 🐙 GitHub — read and write code, PRs, issues
+- 💬 Slack — read and send messages
+- 🗄️ Your database — query data directly
+- 📁 Your files — read and write local files
+
+**3 important things about context and MCP:**
+1. 🪟 Every tool result gets added to context — many tool calls = context fills up faster!
+2. 🔍 Claude only sees what the tool sends back — good tools send only what's needed, not everything!
+3. 🔧 MCP is just standardised tool calling — build one MCP server and it works with Claude, ChatGPT, Gemini — all of them!
+
+**3 important security things:**
+1. ⚠️ MCP tools have real access — a GitHub MCP with write permission can delete your repos! Always use minimum permissions!
+2. 🎯 Not all MCP servers are safe — treat them like npm packages — malicious ones exist! Only use trusted sources!
+3. 💉 Attackers can hide instructions inside emails or documents your MCP reads — like a trojan horse! Always be careful what your MCP connects to!
+
+**MCP Security Checklist:**
+```
+✅ Read-only permissions unless write is absolutely needed
+✅ Only install MCP servers from trusted sources
+✅ Never connect MCP to production systems without human approval
+✅ Monitor what your MCP servers are doing
+```
+
+💡 **MCP vs RAG:**
+- 🔍 RAG → retrieves from YOUR uploaded documents (passive)
+- 🔌 MCP → connects to LIVE services and takes ACTIONS (active)!
+
+⚡ **C# developer tip:** There's an official C# SDK for MCP — you can build your own MCP server to connect your internal tools to any AI assistant! 🔧
+
+---
+
+## 31. 🎓 Skills
+
+A **pre-built package of instructions stored as a file** that the AI reads automatically BEFORE starting a task — teaching it exactly how to perform specific tasks to YOUR standard, every time! Like handing a new employee a training manual before they start work! 📋
+
+**Skills vs Prompts — the crucial difference:**
+> 📝 Prompt = what YOU type in the chat — works once, for one session
+> 📋 Skill = a separate file stored on disk — loads automatically, works forever, for everyone!
+
+**How a skill works:**
+```
+You say: "Create a presentation"
+              ↓
+AI reads: /skills/pptx/SKILL.md 📋
+              ↓
+AI follows exact instructions
+              ↓
+Perfect result every time! ✅
+```
+
+**Real skill examples:**
+
+*PPTX Skill — stored at `/skills/pptx/SKILL.md`:*
+```
+When creating PowerPoint files:
+- Always use 16:9 format
+- Max 5 bullet points per slide
+- Always use Calibri font size 24
+- Always end with a summary slide
+```
+
+*C# Code Review Skill — stored at `/skills/csharp-review/SKILL.md`:*
+```
+When reviewing C# code:
+- Always check null reference handling
+- Always verify SOLID principles
+- Format output as: Issue → Severity → Fix
+```
+
+**6 important things to know:**
+
+1. ♻️ **Reusable across sessions and users** — one skill file = consistent quality for your whole team!
+2. 🔥 **Skills can be combined** — load multiple skills for one task — they stack on top of each other!
+3. 🎬 **Skills = Session Priming stored permanently** — instead of typing rules every session, write them once in a file!
+4. 🎯 **Skills can trigger automatically** — smart systems detect what you need and load the right skill without being told!
+5. 📐 **More specific beats more general** — like CSS specificity — the more targeted skill wins!
+6. 🔧 **You can write your own skills** — just create a markdown SKILL.md file with your team's standards!
+
+**Context impact:**
+> Every skill loaded takes tokens from your context window BEFORE your conversation starts!
+> - ✂️ Keep skill files concise
+> - 🎯 Load only skills you actually need
+> - 📏 Large skill + large codebase = context overflow risk!
+
+**Security:**
+> Skill files can be tampered with or malicious ones exist in the wild — treat them like code!
+```
+✅ Store in version-controlled repository
+✅ Always read community skill files before using
+✅ Never put secrets or credentials inside skill files
+✅ Monitor skill files for unexpected changes
+✅ Keep skill files minimal — less surface area = less risk
+```
+
+**Skills vs System Prompts:**
+- 📜 System Prompt → always active, global, invisible to users
+- 🎓 Skill → loaded when needed, specialised, transparent
+
+💡 **The big picture:** Skills turn your team's best practices into permanent AI behaviour — written once, followed by AI forever! 🎯
+
+---
+
+## 32. 🛠️ Tools
+
+**Built-in capabilities** that give AI the ability to actually DO things in the world — not just talk about them! Like giving a brilliant chef actual kitchen equipment instead of just knowing recipes! 🍳
+
+**The key difference tools make:**
+- Without tools → AI describes what COULD be done 💬
+- With tools → AI actually DOES it! ✅
+
+**Tools vs Skills vs MCP — the clear picture:**
+```
+🛠️ Tools  = WHAT you can do (built-in abilities)
+🎓 Skills = HOW you do it (your standard and style)
+🔌 MCP    = WHO you can call (external connections)
+```
+
+**Surgeon analogy 🏥**
+
+🛠️ **Tools = your built-in medical abilities**
+Things you can DO naturally as a surgeon:
+- 👀 Examine a patient (image analysis)
+- 🔬 Run lab tests (code execution)
+- 📖 Read medical records (file reading)
+- 📡 Check latest research (web search)
+
+These come WITH you — built into Claude by Anthropic. You don't install them — they're already there! ✅
+
+🎓 **Skills = your medical specialisation training**
+Your training manual that says HOW to do things:
+- 📋 *"When performing heart surgery — always follow these 12 steps"*
+- 📋 *"When writing a patient report — always use this template"*
+
+Skills don't give you NEW abilities — they teach you HOW to use existing abilities to a specific standard!
+
+🔌 **MCP = your hospital's external connections**
+Things OUTSIDE the hospital you can call:
+- 📧 Call the pharmacy (Gmail)
+- 🏦 Bill the insurance company (payment system)
+- 📋 Update records in external system (database)
+- 🚑 Coordinate with other hospitals (Slack)
+
+MCP connects you to LIVE external services that can take REAL actions in the world! 🌍
+
+**C# developer analogy 💻**
+
+| | Tools 🛠️ | Skills 🎓 | MCP 🔌 |
+|---|---|---|---|
+| **Analogy** | Your IDE features | Your team's coding standards doc | External APIs you call |
+| **Example** | IntelliSense, debugger, compiler | *"Always use SOLID, always write tests"* | GitHub API, Jira API, Slack API |
+| **Who provides** | Anthropic | You or your team | Third parties |
+| **Where it lives** | Built into Claude | SKILL.md file on disk | External server |
+| **What it enables** | Doing things | Consistent quality | Real world actions |
+
+**Built-in Tools in Claude:**
+
+| Tool | What it does |
+|---|---|
+| 🌐 Web Search | Searches internet for current info |
+| 💻 Code Execution | Runs Python and JavaScript directly |
+| 📄 File Reading | Reads uploaded documents |
+| 🖼️ Image Analysis | Understands screenshots and diagrams |
+| 🔌 MCP Tools | Connects to external services |
+| 💾 Memory | Remembers info across sessions |
+
+**5 important things to know:**
+1. 🎯 Tools transform AI from a talker to a DOER — without tools there are no agents, just chatbots!
+2. 🔧 You control which tools are available — always give AI only the tools it actually needs!
+3. 🪟 Every tool call uses context window tokens — minimise unnecessary tool calls!
+4. ⚠️ Tools can fail — always test what your AI does when tools fail, not just when they succeed!
+5. 🌉 Tools are the bridge between AI and the real world — they turn a knowledgeable AI into a useful AI!
+
+💡 **The golden one-liners:**
+> 🛠️ *"I CAN search the web"* — Tools
+> 🎓 *"When I search, I always structure results like THIS"* — Skills
+> 🔌 *"I'm calling the actual Gmail server to send a real email"* — MCP
+
+⚠️ **Security:** Always give AI the minimum tools needed for the task — more tools = more potential attack surface!
