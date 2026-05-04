@@ -1,6 +1,6 @@
 # 20. Program-Aided Language Models (PAL)
 
-Instead of asking AI to calculate directly — ask AI to **write code that calculates it**, then execute that code for a precise answer! Like a brilliant professor who understands everything but hands calculations to a calculator instead of doing them mentally! 🧮
+Instead of asking AI to calculate directly - ask AI to **write code that calculates it**, then execute that code for a precise answer! Like a brilliant professor who understands everything but hands calculations to a calculator instead of doing them mentally! 🧮
 
 **The 3-step PAL flow:**
 1. 🧠 You describe the problem
@@ -33,10 +33,10 @@ Instead of asking AI to calculate directly — ask AI to **write code that calcu
 - 📋 Explanations
 
 💡 **Key insight:**
-Don't ask AI to calculate → ask AI to **build the calculator!** You're not just getting an answer — you're getting a reusable tool that answers forever! 🔧
+Don't ask AI to calculate → ask AI to **build the calculator!** You're not just getting an answer - you're getting a reusable tool that answers forever! 🔧
 
 **Supported languages in chat:**
 - 🐍 Python → runs directly in chat via code execution
 - 🌐 JavaScript → runs directly in artifacts
 
-⚠️ **Golden rule:** Computers calculate things better than LLMs — always use PAL for precision-critical tasks!
+⚠️ **Golden rule:** Computers calculate things better than LLMs - always use PAL for precision-critical tasks!

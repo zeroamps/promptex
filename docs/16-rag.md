@@ -8,11 +8,11 @@ Instead of answering from training alone, the AI first **retrieves real, current
 - ✍️ Generate → Answer based on real retrieved content
 
 **RAG sources:**
-- 🌐 Internet search — latest news, docs, Stack Overflow
-- 📄 Your own documents — company wiki, PDF manuals
-- 🗄️ Live database — customer records, product catalog
-- 💻 Your codebase — your actual project files
-- 📝 Meeting notes — decisions made by your team
+- 🌐 Internet search - latest news, docs, Stack Overflow
+- 📄 Your own documents - company wiki, PDF manuals
+- 🗄️ Live database - customer records, product catalog
+- 💻 Your codebase - your actual project files
+- 📝 Meeting notes - decisions made by your team
 
 **How Claude Projects uses RAG:**
 - Small docs → included directly in context window ✅
@@ -34,4 +34,4 @@ Instead of answering from training alone, the AI first **retrieves real, current
 **Power combo:**
 Session Priming + RAG + Prompt Chaining + Tree of Thought = AI that knows your codebase AND the latest tech! 🔥
 
-⚠️ **Difference from Generate Knowledge:** Generate Knowledge creates knowledge from training — RAG retrieves from YOUR external sources!
+⚠️ **Difference from Generate Knowledge:** Generate Knowledge creates knowledge from training - RAG retrieves from YOUR external sources!

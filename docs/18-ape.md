@@ -22,7 +22,7 @@ Instead of writing prompts yourself, you ask the **AI to write better prompts fo
 - Thoroughness, actionability, simplicity 🎯
 
 💡 **Key insight:**
-APE turns the AI into a **meta-tool** — you're not using AI to solve a problem, you're using AI to **build better tools** to solve problems! 🔧
+APE turns the AI into a **meta-tool** - you're not using AI to solve a problem, you're using AI to **build better tools** to solve problems! 🔧
 
 ⭐ **Power combo:**
 APE → generates the best prompt 🤖

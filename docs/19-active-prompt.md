@@ -1,6 +1,6 @@
 # 19. Active-Prompt
 
-Instead of choosing examples upfront and never changing them, Active-Prompt **learns from real failures** and improves over time. Like a GPS that updates itself based on wrong turns — getting smarter with every mistake! 🗺️
+Instead of choosing examples upfront and never changing them, Active-Prompt **learns from real failures** and improves over time. Like a GPS that updates itself based on wrong turns - getting smarter with every mistake! 🗺️
 
 **The core idea:**
 > AI gets uncertain or wrong → YOU add that specific example → prompt gets smarter → repeat! 🔄
@@ -11,12 +11,12 @@ Instead of choosing examples upfront and never changing them, Active-Prompt **le
 3. ✍️ Add those specific cases as new examples
 4. 💪 Prompt gets smarter over time!
 
-**Example — evolving a C# code review prompt:**
+**Example - evolving a C# code review prompt:**
 
 *Starting prompt:*
 > *"Classify this code review comment as: Security / Performance / Readability / Design"*
 
-*After 2 weeks — updated with real failures:*
+*After 2 weeks - updated with real failures:*
 > *"Classify this code review comment as: Security / Performance / Readability / Design*
 > - *"This method is too long"* → Design
 > - *"Missing using statement"* → Readability
@@ -41,4 +41,4 @@ APE to write the best initial prompt ⚙️
 
 💡 **Reflexion tip:** Want the AI to self-improve without you spotting mistakes? Add this to ANY prompt:
 > *"Now critique your own answer and rewrite it fixing all issues you found."*
-> The AI becomes its own reviewer — no human needed! 🔄
+> The AI becomes its own reviewer - no human needed! 🔄

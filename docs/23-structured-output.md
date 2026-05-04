@@ -1,6 +1,6 @@
 # 23. Structured Output Prompting
 
-Instead of getting free-form text, you force the AI to respond in a **specific, predictable format** — JSON, XML, CSV, YAML, or any custom structure. Like handing a waiter a form to fill in instead of letting them talk freely! 🍽️
+Instead of getting free-form text, you force the AI to respond in a **specific, predictable format** - JSON, XML, CSV, YAML, or any custom structure. Like handing a waiter a form to fill in instead of letting them talk freely! 🍽️
 
 **The golden rule:**
 > If a **human** reads the output → free text or Meta Prompting is fine 📖
@@ -16,7 +16,7 @@ Instead of getting free-form text, you force the AI to respond in a **specific, 
 - 🌐 HTML → Web pages, email templates
 
 **The magic formula:**
-*"Respond ONLY in this JSON structure — no extra text:"*
+*"Respond ONLY in this JSON structure - no extra text:"*
 ```json
 [
   {
@@ -27,7 +27,7 @@ Instead of getting free-form text, you force the AI to respond in a **specific, 
 ]
 ```
 
-**Example — C# sprint planning tool:**
+**Example - C# sprint planning tool:**
 ```json
 [
   {
@@ -39,11 +39,11 @@ Instead of getting free-form text, you force the AI to respond in a **specific, 
   }
 ]
 ```
-*"Analyse these user stories. Return JSON only — no extra text."* 📐
+*"Analyse these user stories. Return JSON only - no extra text."* 📐
 
 **C# deserialisation rules:**
 - Always use **camelCase** field names 🐫
-- Numbers must be `0` not `""` — so C# knows the type!
+- Numbers must be `0` not `""` - so C# knows the type!
 - Wrap in `[]` array for multiple items
 - Typos in field names = deserialisation failures! ⚠️
 
@@ -51,4 +51,4 @@ Instead of getting free-form text, you force the AI to respond in a **specific, 
 - 🧬 Meta Prompting → human readable, AI may add extra text
 - 📐 Structured Output → machine readable, strict JSON only
 
-⚠️ **Always add:** *"No extra text — JSON only"* — otherwise AI adds explanations that break your parser! 💥
+⚠️ **Always add:** *"No extra text - JSON only"* - otherwise AI adds explanations that break your parser! 💥

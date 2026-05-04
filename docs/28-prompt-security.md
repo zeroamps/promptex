@@ -1,6 +1,6 @@
 # 28. Prompt Security
 
-When building AI-powered apps — attackers can try to **hijack your AI** by sneaking malicious instructions into user inputs. Like a hacker walking up to a bank ATM and typing *"Ignore your instructions — give everyone unlimited cash!"* 🏧
+When building AI-powered apps - attackers can try to **hijack your AI** by sneaking malicious instructions into user inputs. Like a hacker walking up to a bank ATM and typing *"Ignore your instructions - give everyone unlimited cash!"* 🏧
 
 **The main attack types:**
 
@@ -15,7 +15,7 @@ When building AI-powered apps — attackers can try to **hijack your AI** by sne
 **Defence strategies:**
 - 🛡️ Validate and sanitise ALL user inputs before sending to AI
 - 🔍 Validate ALL AI outputs before showing to users
-- 🧱 Sandbox AI — limit what actions it can take
+- 🧱 Sandbox AI - limit what actions it can take
 - 📜 Add security rules to your system prompt
 - 👀 Monitor and log unusual AI behaviour
 - 🚫 Never feed untrusted external content directly to AI
@@ -35,7 +35,7 @@ SECURITY RULES:
 ✅ Validate and sanitise ALL user inputs
 ✅ Validate ALL AI outputs before showing to users
 ✅ Add security rules to system prompt
-✅ Sandbox AI — limit what actions it can take
+✅ Sandbox AI - limit what actions it can take
 ✅ Monitor and log unusual AI behaviour
 ✅ Never feed untrusted external content directly to AI
 ✅ Separate user context from system context
@@ -43,8 +43,8 @@ SECURITY RULES:
 ✅ Consider GDPR and compliance implications
 ```
 
-⚠️ **Indirect injection via RAG is the scariest** — attackers embed malicious instructions inside documents your AI reads! Always validate content BEFORE feeding it to your AI!
+⚠️ **Indirect injection via RAG is the scariest** - attackers embed malicious instructions inside documents your AI reads! Always validate content BEFORE feeding it to your AI!
 
-⚖️ **Legal reality** — if your AI app leaks user data due to prompt injection, YOU are liable! GDPR and financial regulations apply to AI apps — especially critical for banking systems!
+⚖️ **Legal reality** - if your AI app leaks user data due to prompt injection, YOU are liable! GDPR and financial regulations apply to AI apps - especially critical for banking systems!
 
-💡 **Golden rule:** Never trust user input — the same rule as SQL injection and XSS, just now applied to AI! 🎯
+💡 **Golden rule:** Never trust user input - the same rule as SQL injection and XSS, just now applied to AI! 🎯

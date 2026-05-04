@@ -29,9 +29,9 @@ GuideDog → TrainingService
 *"Based on this class dependency graph, if we change the Animal class, which classes need updating and in what order?"* 🕸️
 
 **What graphs reveal that text hides:**
-- 🔗 Direction — who calls who, not just who exists
-- 📍 Distance — how many hops between nodes
-- 💥 Cascade — which failures trigger other failures
+- 🔗 Direction - who calls who, not just who exists
+- 📍 Distance - how many hops between nodes
+- 💥 Cascade - which failures trigger other failures
 
 **Best use cases:**
 - 🏗️ Microservices dependency maps

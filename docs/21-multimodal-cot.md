@@ -1,6 +1,6 @@
 # 21. Multimodal Chain of Thought (Multimodal CoT)
 
-Instead of reasoning with text only, the AI reasons using **multiple types of input** — text, images, diagrams, charts — all together! Like a doctor who doesn't just read the patient's description but also studies the X-ray, scans, and charts! 🏥
+Instead of reasoning with text only, the AI reasons using **multiple types of input** - text, images, diagrams, charts - all together! Like a doctor who doesn't just read the patient's description but also studies the X-ray, scans, and charts! 🏥
 
 **What "multimodal" means:**
 - 📝 Text → code, descriptions, instructions
@@ -27,6 +27,6 @@ Instead of reasoning with text only, the AI reasons using **multiple types of in
 - 🖥️ UI bugs → interface screenshots
 
 💡 **Key insight:**
-Every time you paste a screenshot into Claude and ask it to reason about it — that's Multimodal CoT in action! You're already using it! 😄
+Every time you paste a screenshot into Claude and ask it to reason about it - that's Multimodal CoT in action! You're already using it! 😄
 
 ⚡ **Power combo:** Session Priming + Multimodal CoT + Tree of Thought = the ultimate debugging prompt! 🔥
