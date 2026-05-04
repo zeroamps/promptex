@@ -6,35 +6,40 @@ A beginner-friendly cheat sheet for prompt engineering techniques.
 
 ## 🗺️ Quick Reference
 
-- 🎯 [Zero-Shot](#1--zero-shot) — Simple everyday task
-- 🎨 [CRAFT Framework](#2--craft-framework) — Need a complete, structured prompt
-- 🧠 [Chain of Thought](#6--chain-of-thought-cot) — Want AI to think before answering
-- 🎤 [Clarifying Questions](#7--clarifying-questions) — Need more info before starting
-- 🖼️ [Few-Shot](#8-️-few-shot) — Show AI what style you want
-- 🔗 [Prompt Chaining](#9--prompt-chaining) — Big task to break into steps
-- 🎬 [Session Priming](#10--session-priming) — Starting a new work session
-- 🪞 [Self-Consistency](#11--self-consistency) — High-stakes decision, need confidence
-- ✂️ [Negative Prompting](#12-️-negative-prompting) — AI keeps doing things you don't want
-- 🌳 [Tree of Thought](#13--tree-of-thought) — Comparing multiple options
-- 🧬 [Meta Prompting](#14--meta-prompting) — Need reusable prompt template
-- 💡 [Generate Knowledge](#15--generate-knowledge-prompting) — AI needs context before answering
-- 🔍 [RAG](#16--retrieval-augmented-generation-rag) — Need current or your own data
-- 🤖 [ART](#17--automatic-reasoning-and-tool-use-art) — AI should use tools automatically
-- ⚙️ [APE](#18-️-automatic-prompt-engineer-ape) — Want better prompts without effort
-- 🎯 [Active-Prompt](#19--active-prompt) — Prompt keeps getting things wrong
-- 💻 [PAL](#20--program-aided-language-models-pal) — Need precise calculations
-- 🖼️ [Multimodal CoT](#21-️-multimodal-chain-of-thought-multimodal-cot) — Have screenshots or diagrams
-- 🕸️ [Graph Prompting](#22-️-graph-prompting) — Need to map relationships
-- 📐 [Structured Output](#23--structured-output-prompting) — Code needs to read the output
-- 💬 [Emotion/Stakes](#24--emotionstakes-prompting) — Need extra thorough response
-- 🪟 [Context Window Management](#25--context-window-management) — Understanding AI memory limits
-- 🔀 [Contrastive Prompting](#26--contrastive-prompting) — AI keeps getting it almost right
-- 📜 [System Prompts](#27--system-prompts) — Building AI apps or setting permanent rules
-- 🔒 [Prompt Security](#28--prompt-security) — Building secure AI-powered apps
-- 🤖 [AI Agents](#29--ai-agents) — Autonomous goal-oriented AI
-- 🔌 [MCP](#30--mcp--model-context-protocol) — Connecting AI to external tools and services
-- 🎓 [Skills](#31--skills) — Pre-built instruction packages for consistent results
-- 🛠️ [Tools](#32--tools) — Built-in AI capabilities that make things happen
+> 📚 Full documentation is available in the [docs/](docs/) folder.
+
+- 🎯 [Zero-Shot](docs/01-zero-shot.md) — Simple everyday task
+- 🎨 [CRAFT Framework](docs/02-craft-framework.md) — Need a complete, structured prompt
+- 🚂 [Prefixing](docs/03-prefixing.md) — Steer direction by starting the sentence
+- ❓ [Questions](docs/04-questions.md) — Simple H-question prompts
+- 💪 [Commands](docs/05-commands.md) — Strong action verb prompts
+- 🧠 [Chain of Thought](docs/06-chain-of-thought.md) — Want AI to think before answering
+- 🎤 [Clarifying Questions](docs/07-clarifying-questions.md) — Need more info before starting
+- 🖼️ [Few-Shot](docs/08-few-shot.md) — Show AI what style you want
+- 🔗 [Prompt Chaining](docs/09-prompt-chaining.md) — Big task to break into steps
+- 🎬 [Session Priming](docs/10-session-priming.md) — Starting a new work session
+- 🪞 [Self-Consistency](docs/11-self-consistency.md) — High-stakes decision, need confidence
+- ✂️ [Negative Prompting](docs/12-negative-prompting.md) — AI keeps doing things you don't want
+- 🌳 [Tree of Thought](docs/13-tree-of-thought.md) — Comparing multiple options
+- 🧬 [Meta Prompting](docs/14-meta-prompting.md) — Need reusable prompt template
+- 💡 [Generate Knowledge](docs/15-generate-knowledge.md) — AI needs context before answering
+- 🔍 [RAG](docs/16-rag.md) — Need current or your own data
+- 🤖 [ART](docs/17-art.md) — AI should use tools automatically
+- ⚙️ [APE](docs/18-ape.md) — Want better prompts without effort
+- 🎯 [Active-Prompt](docs/19-active-prompt.md) — Prompt keeps getting things wrong
+- 💻 [PAL](docs/20-pal.md) — Need precise calculations
+- 🖼️ [Multimodal CoT](docs/21-multimodal-cot.md) — Have screenshots or diagrams
+- 🕸️ [Graph Prompting](docs/22-graph-prompting.md) — Need to map relationships
+- 📐 [Structured Output](docs/23-structured-output.md) — Code needs to read the output
+- 💬 [Emotion/Stakes](docs/24-emotion-stakes.md) — Need extra thorough response
+- 🪟 [Context Window Management](docs/25-context-window-management.md) — Understanding AI memory limits
+- 🔀 [Contrastive Prompting](docs/26-contrastive-prompting.md) — AI keeps getting it almost right
+- 📜 [System Prompts](docs/27-system-prompts.md) — Building AI apps or setting permanent rules
+- 🔒 [Prompt Security](docs/28-prompt-security.md) — Building secure AI-powered apps
+- 🤖 [AI Agents](docs/29-ai-agents.md) — Autonomous goal-oriented AI
+- 🔌 [MCP](docs/30-mcp.md) — Connecting AI to external tools and services
+- 🎓 [Skills](docs/31-skills.md) — Pre-built instruction packages for consistent results
+- 🛠️ [Tools](docs/32-tools.md) — Built-in AI capabilities that make things happen
 
 ---
 
